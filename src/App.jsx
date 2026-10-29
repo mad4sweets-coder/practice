@@ -4,7 +4,7 @@ import Main from "./pages/Main/Main"
 import Index from "./pages/Index/Index"
 import Menu from "./pages/Menu/Menu"
 import Inventory from "./pages/Inventory/Inventory"
-
+import Emp, { EmpRead, EmpCreate, EmpUpdate, EmpDelete } from "./pages/Emp/Emp";
 
 function App() {
 
@@ -45,7 +45,12 @@ function App() {
         <Route path="menu" element={<Menu />}></Route>
         <Route path="inventory" element={<Inventory />}></Route>
         {/* <Route path="order" element={<Order />}></Route> */}
-        {/* <Route path="emp" element={<Emp />}></Route> */}
+        <Route path="emp" element={<Emp />}>
+          <Route index element={<EmpRead staffs={staffs} />} />
+          <Route path="create" element={<EmpCreate setStaffs={setStaffs} />} />
+          <Route path="update" element={<EmpUpdate setStaffs={setStaffs} />} />
+          <Route path="delete" element={<EmpDelete setStaffs={setStaffs} />} />
+        </Route>
       </Route>
 
     </Routes>
