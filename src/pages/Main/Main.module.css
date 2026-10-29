@@ -1,0 +1,14 @@
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    border: 1px solid black;
+}
+
+.container {
+    margin: auto;
+    width: 700px;
+    height: 500px;
+}
