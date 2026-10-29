@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    margin: auto;
+    width: 700px;
+    height: 500px;
+    border: 1px solid black;
+    
+}
+
+.header {
+    height: 10%;
+    border-bottom: 1px solid black;
+}
+
+.body {
+    height: 90%;
+}
+
+.left {
+    float: left;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid black;
+    
+}
+
+.left > div {
+    height: 20%;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    float: left;
+    width: 80%;
+    height: 100%;
+    
+}
