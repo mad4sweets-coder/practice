@@ -7,13 +7,38 @@
     width: 700px;
     height: 500px;
     border: 1px solid black;
-    
+
 }
 
 .header {
     height: 10%;
     border-bottom: 1px solid black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.button {
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    right: 30px;
+}
+
+.button:hover {
+    background: #ddd;
+}
+
 
 .body {
     height: 90%;
@@ -24,10 +49,9 @@
     width: 20%;
     height: 100%;
     border-right: 1px solid black;
-    
 }
 
-.left > div {
+.left>div {
     height: 20%;
     border-bottom: 1px solid black;
     display: flex;
@@ -35,9 +59,14 @@
     align-items: center;
 }
 
+.left>div:hover {
+    cursor: pointer;
+    background: #ddd;
+}
+
 .right {
     float: left;
     width: 80%;
     height: 100%;
-    
+
 }

@@ -5,7 +5,7 @@ import Index from "./pages/Index/Index"
 import Menu from "./pages/Menu/Menu"
 import Inventory from "./pages/Inventory/Inventory"
 import Emp, { EmpRead, EmpCreate, EmpUpdate, EmpDelete } from "./pages/Emp/Emp";
-import Order from "./pages/Order/Order"
+import Order, { OrderRead, OrderCreate, OrderUpdate, OrderDelete } from "./pages/Order/Order"
 import DashBoard from "./pages/DashBoard/DashBoard"
 
 function App() {
@@ -43,17 +43,27 @@ function App() {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="index" element={<Index />}>
+<<<<<<< HEAD
         <Route path="dashBoard" element={<DashBoard />}></Route>
         <Route path="menu/*" element={<Menu menus={menus} setMenus={setMenus} />}></Route>
         <Route path="inventory/*" element={<Inventory  stocks={stocks} setStocks={setStocks}/>}></Route>
+=======
+        <Route path="dashBoard" element={<DashBoard menus={menus} stocks={stocks} orders={orders} staffs={staffs} />}></Route>
+        <Route path="menu" element={<Menu />}></Route>
+        <Route path="inventory" element={<Inventory />}></Route>
+>>>>>>> 8a9ed027258f72517f955bba27136d2932777d5e
         <Route path="emp" element={<Emp />}>
           <Route index element={<EmpRead staffs={staffs} />} />
           <Route path="create" element={<EmpCreate setStaffs={setStaffs} />} />
           <Route path="update" element={<EmpUpdate setStaffs={setStaffs} />} />
           <Route path="delete" element={<EmpDelete setStaffs={setStaffs} />} />
         </Route>
-        <Route path="order" element={<Order />}></Route>
-
+        <Route path="order" element={<Order />}>
+          <Route index element={<OrderRead orders={orders} />} />
+          <Route path="create" element={<OrderCreate setOrders={setOrders} />} />
+          <Route path="update" element={<OrderUpdate setOrders={setOrders} />} />
+          <Route path="delete" element={<OrderDelete setOrders={setOrders} />} />
+        </Route>
       </Route>
 
     </Routes>
