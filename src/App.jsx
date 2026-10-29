@@ -44,8 +44,8 @@ function App() {
       <Route path="/" element={<Main />}></Route>
       <Route path="index" element={<Index />}>
         <Route path="dashBoard" element={<DashBoard />}></Route>
-        <Route path="menu" element={<Menu />}></Route>
-        <Route path="inventory" element={<Inventory />}></Route>
+        <Route path="menu/*" element={<Menu menus={menus} setMenus={setMenus} />}></Route>
+        <Route path="inventory/*" element={<Inventory  stocks={stocks} setStocks={setStocks}/>}></Route>
         <Route path="emp" element={<Emp />}>
           <Route index element={<EmpRead staffs={staffs} />} />
           <Route path="create" element={<EmpCreate setStaffs={setStaffs} />} />
