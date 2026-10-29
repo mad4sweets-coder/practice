@@ -1,21 +1,21 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 .tabs {
   display: flex;
-  height : 40px;
+  height: 40px;
   border-bottom: 2px solid black;
 }
 
 .tabs a {
   flex: 1;
-  display: flex;                   
+  display: flex;
   justify-content: center;
   align-items: center;
   border-right: 1px solid black;
   color: black;
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 .tabs a:last-child {
@@ -23,7 +23,7 @@
 }
 
 .tabs a:hover {
-  background: #ddd;               
+  background: #ddd;
 }
 
 .tabs a:focus {
@@ -32,7 +32,7 @@
 }
 
 .screen {
-  height : 408px;
+  height: 408px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -40,13 +40,9 @@
   min-height: 250px;
 }
 
-.screen .form {
-  border: none;
-}
-
 .table {
   width: 90%;
-  border-collapse: collapse;      
+  border-collapse: collapse;
 }
 
 .table th,
@@ -62,7 +58,7 @@
 
 .form {
   display: flex;
-  flex-direction: column;         
+  flex-direction: column;
   width: 220px;
 }
 
@@ -83,4 +79,3 @@
 .form button:hover {
   background: #ddd;
 }
-
