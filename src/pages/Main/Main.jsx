@@ -1,5 +1,5 @@
 import styles from './Main.module.css';
-import { Outlet ,useNavigate} from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 const Main = () => {
 
@@ -7,13 +7,14 @@ const Main = () => {
 
     return (
         <div className={styles.container}>
-            
-            <div> 매장 관리 시스템 로그인 </div>
-            <input type="text" /><br />
-            <input type="text" /><br />
-            <button onClick={()=> {navi("/index")}}>로그인</button>
 
-            
+            <div className={styles.title}> 매장 관리 시스템 로그인 </div>
+            <div className={styles.form}>
+                <input type="text" placeholder="ID" /><br />
+                <input type="text" placeholder="PASSWORD"/><br />
+                <button onClick={() => { navi("/index") }}>로그인</button>
+            </div>
+
         </div>
     )
 }
