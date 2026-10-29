@@ -6,10 +6,10 @@ const Emp = () => {
     return (
         <>
             <div className="tabs">
-                <Link to="/emp">목록(Read)</Link>
-                <Link to="/emp/create">등록(Create)</Link>
-                <Link to="/emp/update">수정(Update)</Link>
-                <Link to="/emp/delete">삭제(Delete)</Link>
+                <Link to="/index/emp">목록(Read)</Link>
+                <Link to="/index/emp/create">등록(Create)</Link>
+                <Link to="/index/emp/update">수정(Update)</Link>
+                <Link to="/index/emp/delete">삭제(Delete)</Link>
             </div>
             <div className="screen">
                 <Outlet />
@@ -49,7 +49,7 @@ export const EmpCreate = ({ setStaffs }) => {
     const handleCreate = () => {
         if (!form.id) return;
         setStaffs(prev => [...prev, { ...form, id: Number(form.id) }]);
-        navi("/emp");
+        navi("/index/emp");
 
     }
     return (
@@ -81,7 +81,7 @@ export const EmpUpdate = ({setStaffs}) => {
             } else return e;
         })
         );
-        navi("/emp");
+        navi("/index/emp");
     };
 
     return (
@@ -104,7 +104,7 @@ export const EmpDelete = ({ setStaffs }) => {
   const handleDelete = () => {
     if (!del) return;
     setStaffs(prev => prev.filter(e => e.id !== Number(del)));
-    navi("/emp");
+    navi("/index/emp");
   };
 
   return (
