@@ -43,7 +43,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="index" element={<Index />}>
-        <Route path="dashBoard" element={<DashBoard />}></Route>
+        <Route path="dashBoard" element={<DashBoard menus={menus} stocks={stocks} orders={orders} staffs={staffs} />}></Route>
         <Route path="menu" element={<Menu />}></Route>
         <Route path="inventory" element={<Inventory />}></Route>
         <Route path="emp" element={<Emp />}>

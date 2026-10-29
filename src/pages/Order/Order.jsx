@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom"
+import styles from './Order.module.css';
 
 // 레이아웃
 const Order = () => {
     return (
         <>
-            <div className="tabs">
+            <div className={styles.tabs}>
                 <Link to="/index/order">목록(Read)</Link>
                 <Link to="/index/order/create">등록(Create)</Link>
                 <Link to="/index/order/update">수정(Update)</Link>
                 <Link to="/index/order/delete">삭제(Delete)</Link>
             </div>
-            <div className="screen">
+            <div className={styles.screen}>
                 <Outlet />
             </div>
         </>
@@ -21,7 +22,7 @@ const Order = () => {
 //목록
 export const OrderRead = ({ orders }) => {
     return (
-        <table className="table">
+        <table className={styles.table}>
             <thead>
                 <tr><th>주문번호</th><th>주문상품</th><th>결제금액</th></tr>
             </thead>
@@ -53,10 +54,10 @@ export const OrderCreate = ({ setOrders }) => {
 
     }
     return (
-        <div className="form">
-                <input type="text" name="id" placeholder="id" onChange={handleChange} value={form.id} /><br></br>
-                <input type="text" name="item" placeholder="item" onChange={handleChange} value={form.item} /><br></br>
-                <input type="text" name="total" placeholder="total" onChange={handleChange} value={form.total} /><br></br>
+        <div className={styles.form}>
+                <input type="text" name="id" placeholder="번호" onChange={handleChange} value={form.id} /><br></br>
+                <input type="text" name="item" placeholder="주문상품" onChange={handleChange} value={form.item} /><br></br>
+                <input type="text" name="total" placeholder="결제금액" onChange={handleChange} value={form.total} /><br></br>
                 <button onClick={handleCreate}>등록</button>
             </div>
     );
@@ -85,7 +86,7 @@ export const OrderUpdate = ({setOrders}) => {
     };
 
     return (
-        <div className="form">      
+        <div className={styles.form}>      
             <input name="id" value={form.id} onChange={handleChange} placeholder="수정할 주문번호" /><br />      
             <input name="item" value={form.item} onChange={handleChange} placeholder="새 주문상품" /><br />
             <input name="total" value={form.total} onChange={handleChange} placeholder="새 결제금액" /><br />
@@ -108,8 +109,8 @@ export const OrderDelete = ({ setOrders }) => {
   };
 
   return (
-    <div className="form">
-      <input placeholder="삭제할 번호" value={del} onChange={e => setDel(e.target.value)} />
+    <div className={styles.form}>
+      <input placeholder="삭제할 번호" value={del} onChange={e => setDel(e.target.value)} /><br></br>
       <button onClick={handleDelete}>삭제</button>
     </div>
   );
