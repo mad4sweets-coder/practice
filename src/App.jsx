@@ -4,10 +4,9 @@ import Main from "./pages/Main/Main"
 import Index from "./pages/Index/Index"
 import Menu from "./pages/Menu/Menu"
 import Inventory from "./pages/Inventory/Inventory"
-import Emp from "./pages/Emp/Emp"
+import Emp, { EmpRead, EmpCreate, EmpUpdate, EmpDelete } from "./pages/Emp/Emp";
 import Order from "./pages/Order/Order"
 import DashBoard from "./pages/DashBoard/DashBoard"
-
 
 function App() {
 
@@ -47,8 +46,14 @@ function App() {
         <Route path="dashBoard" element={<DashBoard />}></Route>
         <Route path="menu" element={<Menu />}></Route>
         <Route path="inventory" element={<Inventory />}></Route>
+        <Route path="emp" element={<Emp />}>
+          <Route index element={<EmpRead staffs={staffs} />} />
+          <Route path="create" element={<EmpCreate setStaffs={setStaffs} />} />
+          <Route path="update" element={<EmpUpdate setStaffs={setStaffs} />} />
+          <Route path="delete" element={<EmpDelete setStaffs={setStaffs} />} />
+        </Route>
         <Route path="order" element={<Order />}></Route>
-        <Route path="emp" element={<Emp />}></Route>
+
       </Route>
 
     </Routes>
