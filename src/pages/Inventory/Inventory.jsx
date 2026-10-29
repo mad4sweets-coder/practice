@@ -97,7 +97,7 @@ const Inventory = ({ stocks, setStocks }) => {
     return (
         <>
             <div className={styles.tabs}>
-                <Link to="/index/inventory/list">목록(Read)</Link>
+                <Link to="/index/inventory">목록(Read)</Link>
                 <Link to="/index/inventory/add">등록(Create)</Link>
                 <Link to="/index/inventory/edit">수정(Update)</Link>
                 <Link to="/index/inventory/delete">삭제(Delete)</Link>
@@ -105,7 +105,7 @@ const Inventory = ({ stocks, setStocks }) => {
 
             <div className={styles.screen}>
                 <Routes>
-                    <Route path="list" element={<InventoryList stocks={stocks} />}></Route>
+                    <Route index element={<InventoryList stocks={stocks} />}></Route>
                     <Route path='add' element={<InventoryAdd setStocks={setStocks} />}></Route>
                     <Route path='edit' element={<InventoryEdit setStocks={setStocks} />}></Route>
                     <Route path='delete' element={<InventoryDelete setStocks={setStocks} />}></Route>

@@ -97,7 +97,7 @@ const Menu = ({ menus, setMenus }) => {
     return (
         <>
             <div className={styles.tabs}>
-                <Link to="/index/menu/list">목록(Read)</Link>
+                <Link to="/index/menu">목록(Read)</Link>
                 <Link to="/index/menu/add">등록(Create)</Link>
                 <Link to="/index/menu/edit">수정(Update)</Link>
                 <Link to="/index/menu/delete">삭제(Delete)</Link>
@@ -105,7 +105,7 @@ const Menu = ({ menus, setMenus }) => {
 
             <div className={styles.screen}>
                 <Routes>
-                    <Route path="list" element={<MenuList menus={menus} />}></Route>
+                    <Route index element={<MenuList menus={menus} />}></Route>
                     <Route path='add' element={<MenuAdd setMenus={setMenus} />}></Route>
                     <Route path='edit' element={<MenuEdit setMenus={setMenus} />}></Route>
                     <Route path='delete' element={<MenuDelete setMenus={setMenus} />}></Route>
