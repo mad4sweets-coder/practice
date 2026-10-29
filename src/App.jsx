@@ -1,122 +1,55 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Outlet, useNavigate, Routes, Route } from 'react-router-dom'
+import Main from "./pages/Main/Main"
+import Index from "./pages/Index/Index"
+import Menu from "./pages/Menu/Menu"
+import Inventory from "./pages/Inventory/Inventory"
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [menus, setMenus] = useState([
+    { id: 1, name: '아메리카노', price: 4500 },
+    { id: 2, name: '카페라떼', price: 5000 },
+    { id: 3, name: '바닐라라떼', price: 5500 },
+    { id: 4, name: '딸기스무디', price: 6000 },
+    { id: 5, name: '치즈케이크', price: 6500 },
+  ]);
+
+  const [stocks, setStocks] = useState([
+    { id: 1, name: '원두 200g', stock: 25 },
+    { id: 2, name: '바닐라 시럽 1L', stock: 10 },
+    { id: 3, name: '종이컵 1박스', stock: 500 },
+    { id: 4, name: '우유 1L', stock: 30 },
+  ]);
+
+  const [orders, setOrders] = useState([
+    { id: 101, item: '아메리카노 2잔', total: 9000 },
+    { id: 102, item: '카페라떼 1잔', total: 5000 },
+    { id: 103, item: '치즈케이크 1개', total: 6500 },
+    { id: 104, item: '바닐라라떼 1잔', total: 5500 },
+    { id: 105, item: '딸기스무디 2잔', total: 12000 },
+    { id: 106, item: '아메리카노 1잔, 카페라떼 1잔', total: 9500 },
+  ]);
+
+  const [staffs, setStaffs] = useState([
+    { id: 1, name: '김철수', phone: '010-1234-5678' },
+    { id: 2, name: '이영희', phone: '010-9876-5432' },
+  ]);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <Routes>
+      <Route path="/" element={<Main />}>
+        <Route index element={<Index />}></Route>
+        {/* <Route path="dashBoard" element={<DashBoard />}></Route> */}
+        <Route path="menu" element={<Menu />}></Route>
+        <Route path="inventory" element={<Inventory />}></Route>
+        {/* <Route path="order" element={<Order />}></Route> */}
+        {/* <Route path="emp" element={<Emp />}></Route> */}
+      </Route>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    </Routes>
   )
 }
 
-export default App
+export default App;
